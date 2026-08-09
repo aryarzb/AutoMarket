@@ -4,19 +4,19 @@ AutoMarket is a Django-based web application for buying and selling cars.
 
 The project is designed as a simple car marketplace where users can create accounts, manage their profiles, and browse or add car listings.
 
-## ✨ Features
+##  Features
 
-* 👤 User registration and authentication
-* 🔐 User login and logout
-* 👤 User profiles
-* 🚘 Add new car listings
-* 📋 Browse available cars
-* 🔎 View detailed car information
-* 🖼️ Support for car images
-* 🎨 Custom HTML and CSS templates
-* 🗄️ Database management using Django ORM
+*  User registration and authentication
+*  User login and logout
+*  User profiles
+*  Add new car listings
+*  Browse available cars
+*  View detailed car information
+*  Support for car images
+*  Custom HTML and CSS templates
+*  Database management using Django ORM
 
-## 🛠️ Technologies
+##  Technologies
 
 * Python 3
 * Django
@@ -25,7 +25,7 @@ The project is designed as a simple car marketplace where users can create accou
 * SQLite
 * Git & GitHub
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 AutoMarket/
@@ -62,7 +62,7 @@ AutoMarket/
 └── README.md
 ```
 
-## ⚙️ Installation
+##  Installation
 
 ### 1. Clone the repository
 
@@ -112,7 +112,7 @@ Otherwise, install Django manually:
 pip install django
 ```
 
-## 🗄️ Database Setup
+##  Database Setup
 
 Run the Django migrations:
 
@@ -132,7 +132,7 @@ Then apply them:
 python manage.py migrate
 ```
 
-## 👨‍💻 Create a Superuser
+##  Create a Superuser
 
 To access the Django administration panel, create a superuser:
 
@@ -142,7 +142,7 @@ python manage.py createsuperuser
 
 Follow the instructions in the terminal to set the username, email, and password.
 
-## 🚀 Running the Project
+##  Running the Project
 
 Start the Django development server:
 
@@ -162,7 +162,7 @@ The Django administration panel is available at:
 http://127.0.0.1:8000/admin/
 ```
 
-## 🔒 Security
+##  Security
 
 This project is currently intended for development and educational purposes.
 
@@ -188,26 +188,26 @@ Before deploying the application to production, make sure to:
 * Configure static and media files properly
 * Store sensitive configuration in environment variables
 
-## 📌 Project Status
+##  Project Status
 
-🚧 **In Development**
+ **In Development**
 
 AutoMarket is currently under development, and new features and improvements will be added over time.
 
-## 🎯 Future Improvements
+##  Future Improvements
 
-* 🔍 Advanced car search and filtering
-* 💰 Price range filtering
-* 📍 Location-based car listings
-* ❤️ Favorite cars
-* 💬 Messaging between buyers and sellers
-* ⭐ User ratings and reviews
-* 📱 Responsive mobile-friendly design
-* 🖼️ Multiple images for each car
-* 🔑 Improved authentication and authorization
-* 🚀 Production deployment
+*  Advanced car search and filtering
+*  Price range filtering
+*  Location-based car listings
+*  Favorite cars
+*  Messaging between buyers and sellers
+*  User ratings and reviews
+*  Responsive mobile-friendly design
+*  Multiple images for each car
+*  Improved authentication and authorization
+*  Production deployment
 
-## 📚 Purpose
+##  Purpose
 
 This project was created as a learning project to practice:
 
@@ -220,7 +220,7 @@ This project was created as a learning project to practice:
 * Git and GitHub
 * Web application architecture
 
-## 👨‍💻 Author
+##  Author
 
 **Arya Rouzbahani**
 
