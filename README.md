@@ -1,4 +1,4 @@
-# 🚗 AutoMarket
+#  AutoMarket
 
 AutoMarket is a Django-based web application for buying and selling cars.
 
