@@ -1,0 +1,656 @@
+:root {
+    --primary: #D4AF37;
+    --primary-hover: #E2C15A;
+    --success: #16A34A;
+    --danger: #DC2626;
+
+    --background: #0F1724;
+    --surface: #182233;
+    --surface-hover: #202D40;
+
+    --navbar: #080D18;
+
+    --text: #F8FAFC;
+    --text-muted: #94A3B8;
+
+    --border: #334155;
+    --gold-border: rgba(212, 175, 55, .25);
+
+    --radius: 16px;
+    --shadow: 0 18px 40px rgba(0, 0, 0, .35);
+
+    --transition: .25s ease;
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        180deg,
+        #080D18 0%,
+        #0F1724 45%,
+        #101826 100%
+    );
+    color: var(--text);
+    min-height: 100vh;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+    min-height: calc(100vh - 150px);
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow);
+    color: var(--text);
+    overflow: hidden;
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                background var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: var(--surface-hover) !important;
+    box-shadow: 0 22px 45px rgba(0, 0, 0, .45);
+}
+
+.card-body {
+    background: transparent;
+}
+
+.card-footer {
+    background: transparent !important;
+    border-top: 1px solid var(--border) !important;
+}
+
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text);
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+.text-muted,
+.text-secondary {
+    color: var(--text-muted) !important;
+}
+
+.text-success {
+    color: #4ADE80 !important;
+}
+
+.text-warning {
+    color: var(--primary) !important;
+}
+
+
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+
+.automarket-navbar {
+    background: rgba(8, 13, 24, .94) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    min-height: 72px;
+
+    border-bottom: 1px solid var(--gold-border);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .4);
+}
+
+.automarket-brand {
+    color: var(--primary) !important;
+
+    font-size: 1.55rem;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: var(--transition);
+}
+
+.automarket-brand:hover {
+    color: var(--primary-hover) !important;
+}
+
+
+
+.menu-button {
+    width: 48px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(212, 175, 55, .45) !important;
+    border-radius: 11px;
+
+    background: rgba(212, 175, 55, .05);
+
+    transition: var(--transition);
+}
+
+.menu-button:hover {
+    background: rgba(212, 175, 55, .12);
+    border-color: var(--primary) !important;
+}
+
+.menu-button:focus {
+    box-shadow: 0 0 0 .2rem rgba(212, 175, 55, .15);
+}
+
+.menu-button .navbar-toggler-icon {
+    filter: invert(1);
+    width: 1.3em;
+    height: 1.3em;
+}
+
+
+
+.automarket-menu {
+    width: 320px !important;
+
+    background: #080D18 !important;
+
+    color: var(--text);
+
+    border-left: 1px solid var(--gold-border);
+
+    box-shadow: -15px 0 40px rgba(0, 0, 0, .45);
+}
+
+.automarket-menu .offcanvas-header {
+    padding: 22px 24px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.automarket-menu .offcanvas-title {
+    color: var(--primary);
+
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    letter-spacing: .5px;
+}
+
+.automarket-menu .offcanvas-body {
+    padding: 24px 18px;
+}
+
+
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+}
+
+.menu-link {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+
+    color: #CBD5E1 !important;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.menu-link span {
+    width: 24px;
+    min-width: 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--primary);
+
+    font-size: 18px;
+}
+
+.menu-link:hover {
+    color: #FFFFFF !important;
+
+    background: rgba(212, 175, 55, .09);
+
+    transform: translateX(-3px);
+}
+
+.menu-link:hover span {
+    color: var(--primary-hover);
+}
+
+
+
+.menu-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 13px 0;
+
+    background: rgba(255, 255, 255, .09);
+}
+
+
+
+.menu-link.register-link {
+    margin-top: 4px;
+
+    background: var(--primary);
+
+    color: #111827 !important;
+
+    font-weight: 700;
+}
+
+.menu-link.register-link span {
+    color: #111827;
+}
+
+.menu-link.register-link:hover {
+    background: var(--primary-hover);
+
+    color: #111827 !important;
+
+    transform: translateX(-3px);
+}
+
+
+
+.form-control,
+.form-select {
+    background: #1E293B !important;
+
+    border: 1px solid var(--border) !important;
+
+    color: var(--text) !important;
+
+    border-radius: 11px;
+
+    padding: .8rem 1rem;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.form-control::placeholder {
+    color: #64748B;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: #1E293B !important;
+
+    color: var(--text) !important;
+
+    border-color: var(--primary) !important;
+
+    box-shadow:
+        0 0 0 .2rem rgba(212, 175, 55, .16) !important;
+}
+
+.form-select option {
+    background: #1E293B;
+    color: var(--text);
+}
+
+textarea.form-control {
+    min-height: 140px;
+    resize: vertical;
+}
+
+label,
+.form-label {
+    color: var(--text) !important;
+    font-weight: 500;
+    margin-bottom: .45rem;
+}
+
+
+
+.btn {
+    border-radius: 11px !important;
+
+    font-weight: 600;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+
+    color: #111827 !important;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+
+    color: #111827 !important;
+
+    box-shadow: 0 8px 20px rgba(212, 175, 55, .2);
+}
+
+.btn-success {
+    background: #16A34A !important;
+    border-color: #16A34A !important;
+}
+
+.btn-success:hover {
+    background: #15803D !important;
+    border-color: #15803D !important;
+}
+
+.btn-danger {
+    background: var(--danger) !important;
+    border-color: var(--danger) !important;
+}
+
+.btn-outline-light {
+    border-color: #475569 !important;
+    color: var(--text) !important;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, .07) !important;
+
+    border-color: var(--primary) !important;
+
+    color: var(--primary) !important;
+}
+
+
+
+
+.table {
+    color: var(--text) !important;
+    margin-bottom: 0;
+}
+
+.table thead {
+    background: #0B1220 !important;
+}
+
+.table th {
+    color: var(--primary) !important;
+
+    border-bottom: 1px solid var(--border) !important;
+
+    font-weight: 600;
+}
+
+.table td {
+    color: #CBD5E1 !important;
+
+    border-color: var(--border) !important;
+
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    transition: background var(--transition);
+}
+
+.table tbody tr:hover {
+    background: rgba(212, 175, 55, .05) !important;
+}
+
+
+
+
+.cars-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 28px;
+
+    width: 100%;
+}
+
+.car-card {
+    width: 100%;
+    min-width: 0;
+}
+
+
+
+.car-image {
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #1E293B
+        );
+
+    color: #64748B;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.alert {
+    background: var(--surface) !important;
+
+    border: 1px solid var(--border) !important;
+
+    color: var(--text) !important;
+
+    border-radius: var(--radius);
+}
+
+.alert-info {
+    border-color: rgba(212, 175, 55, .25) !important;
+}
+
+
+
+.automarket-footer {
+    background: #080D18;
+
+    border-top: 1px solid var(--gold-border);
+
+    color: var(--text-muted);
+
+    margin-top: 60px;
+}
+
+.footer-content {
+    min-height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-content h5 {
+    color: var(--primary);
+
+    margin-bottom: 5px;
+}
+
+.footer-content p {
+    color: var(--text-muted);
+
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+hr {
+    border-color: var(--border) !important;
+    opacity: 1;
+}
+
+
+::selection {
+    background: var(--primary);
+    color: #111827;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080D18;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3B475A;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+
+@media (max-width: 768px) {
+
+    .main-content {
+        padding-top: 25px;
+        padding-bottom: 35px;
+    }
+
+    .automarket-menu {
+        width: 85% !important;
+        max-width: 320px;
+    }
+
+    .card {
+        border-radius: 14px !important;
+    }
+
+    .cars-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 15px;
+
+        padding: 25px 0;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .automarket-navbar {
+        min-height: 64px;
+    }
+
+    .automarket-brand {
+        font-size: 1.3rem;
+    }
+
+    .menu-button {
+        width: 44px;
+        height: 40px;
+    }
+}

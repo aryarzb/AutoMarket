@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ car.brand }} {{ car.system }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row g-4">
+
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                {% if car.images.all %}
+                    <img
+                        src="{{ car.images.first.image.url }}"
+                        class="img-fluid rounded mb-3 w-100"
+                        style="height:450px;object-fit:cover;"
+                        alt="{{ car.brand }}"
+                    >
+                    <div class="row g-2">
+                        {% for image in car.images.all %}
+                            <div class="col-3">
+                                <img
+                                    src="{{ image.image.url }}"
+                                    class="img-fluid rounded border"
+                                    style="height:100px;width:100%;object-fit:cover;"
+                                    alt="{{ car.brand }}"
+                                >
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div
+                        class="rounded d-flex justify-content-center align-items-center"
+                        style="height:450px;background:#1E293B;"
+                    >
+                        <div class="text-center">
+                            <h3 class="text-secondary">
+                                No Images
+                            </h3>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="fw-bold text-warning">
+                    {{ car.brand }} {{ car.system }}
+                </h2>
+                <h3 class="text-success mb-4">
+                    ${{ car.price }}
+                </h3>
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <strong>System</strong><br>
+                        {{ car.system }}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Year</strong><br>
+                        {{ car.year }}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Mileage</strong><br>
+                        {{ car.mileage }} km
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Color</strong><br>
+                        {{ car.get_color_display }}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Body Condition</strong><br>
+                        {{ car.get_body_situation_display }}
+                    </div>
+                </div>
+                <hr class="my-4">
+                <h4>Description</h4>
+                <p class="text-secondary">
+                    {{ car.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="mb-3">
+                    Location
+                </h4>
+                <p>
+                    {{ car.owner.state }}
+                    <br>
+                    {{ car.owner.city }}
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body text-center">
+                <img
+                    src="https://placehold.co/120x120"
+                    class="rounded-circle mb-3"
+                >
+                <h4>
+                    {{ car.owner.first_name }}
+                    {{ car.owner.last_name }}
+                </h4>
+                <p class="text-secondary">
+                    @{{ car.owner.username }}
+                </p>
+                <hr>
+                <p>
+                    {{ car.owner.mobile_number }}
+                </p>
+                <p>
+                    {{ car.owner.city }}
+                </p>
+                <a
+                    href="/profile/{{ car.owner.id }}/"
+                    class="btn btn-primary w-100"
+                >
+                    View Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

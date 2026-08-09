@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Car
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="mb-0">Add New Car</h3>
+    </div>
+    <div class="card-body">
+        <form 
+        method="POST"
+        enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Brand</label>
+                    <input
+                        type="text"
+                        name="brand"
+                        class="form-control"
+                        required
+                    >
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">System</label>
+                    <input
+                        type="text"
+                        name="system"
+                        class="form-control"
+                        required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Year</label>
+                    <input
+                        type="number"
+                        name="year"
+                        class="form-control"
+                        value="2010"
+                        min="1900"
+                        max="2100"
+                        required
+                    >
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Price ($)</label>
+                    <input
+                        type="number"
+                        name="price"
+                        class="form-control"
+                        min="0"
+                        required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Mileage (km)</label>
+                    <input
+                        type="number"
+                        name="mileage"
+                        class="form-control"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Color</label>
+                    <select
+                        name="color"
+                        class="form-select"
+                        required
+                    >
+                        {% for value, label in colors %}
+                            <option value="{{ value }}">
+                                {{ label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Body Condition</label>
+                    <select
+                        name="body_situation"
+                        class="form-select"
+                        required
+                    >
+                        {% for value, label in body_conditions %}
+                            <option value="{{ value }}">
+                                {{ label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea
+                        name="description"
+                        class="form-control"
+                        rows="5"
+                    ></textarea>
+                </div>
+                <div>
+                    <label>Images</label>
+                        <input
+                            type="file"
+                            name="images"
+                            multiple
+                            accept="image/*"
+                            >
+                </div>
+            </div>
+            <div class="d-grid mt-3">
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-lg">
+                    Publish Advertisement
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
