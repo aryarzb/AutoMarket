@@ -51,10 +51,12 @@ Add Car
                 <div class="col-md-6 mb-3">
                     <label class="form-label">Price ($)</label>
                     <input
-                        type="number"
+                        type="text"
                         name="price"
+                        id="price"
                         class="form-control"
-                        min="0"
+                        inputmode="numeric"
+                        placeholder="e.g. 1.250.000"
                         required
                     >
                 </div>
@@ -63,11 +65,13 @@ Add Car
                 <div class="col-md-6 mb-3">
                     <label class="form-label">Mileage (km)</label>
                     <input
-                        type="number"
+                        type="text"
                         name="mileage"
+                        id="mileage"
                         class="form-control"
+                        inputmode="numeric"
                         min="0"
-                        value="0"
+                        placeholder="e.g. 20.000"
                         required
                     >
                 </div>
@@ -129,5 +133,32 @@ Add Car
         </form>
     </div>
 </div>
+
+
+
+<script>
+const priceInput = document.getElementById("price");
+const mileageInput = document.getElementById("mileage");
+
+priceInput.addEventListener("input", function () {
+    let value = this.value.replace(/\D/g, "");
+    if (value) {
+        this.value = Number(value).toLocaleString("de-DE");
+    } else {
+        this.value = "";
+    }
+});
+mileageInput.addEventListener("input", function () {
+    let value = this.value.replace(/\D/g, "");
+
+    if (value) {
+        this.value = Number(value).toLocaleString("de-DE");
+    } else {
+        this.value = "";
+    }
+});
+</script>
+
+
 
 {% endblock %}

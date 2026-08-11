@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from cars.models import Cars
+from django.contrib.auth.decorators import login_required
 
 
 def login_view(request):
@@ -52,7 +53,6 @@ def register(request):
 
 
 def car_info(request, id):
-
     car = get_object_or_404(
         Cars ,
         id=id
@@ -64,3 +64,18 @@ def car_info(request, id):
             "car": car,
         },
     )
+    
+    
+def logout_view(request):
+    logout(request)
+    return redirect("car_list")
+
+
+
+@login_required
+def profile(request):
+    cars = request.user.cars.all()
+    context = {
+        "cars" : cars
+    }
+    return render(request, "accounts/profile.html", context)

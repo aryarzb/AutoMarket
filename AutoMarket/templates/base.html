@@ -66,22 +66,26 @@
                 <span>＋</span>
                 Add Car
             </a>
-            <a href="/profile/"
+            <a href="{% url 'profile' %}"
                 class="menu-link">
                 <span>◉</span>
                 Profile
             </a>
-            <div class="menu-divider"></div>
-            <a href="{% url 'login' %}"
-                class="menu-link">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="menu-link">
                 <span>→</span>
-                Login
+                Logout
             </a>
-            <a href="{% url 'register' %}"
-                class="menu-link register-link">
-                <span>+</span>
-                Register
+            {% else %}
+            <a href="{% url 'login' %}" class="menu-link">
+            <span>→</span>
+            Login
             </a>
+            <a href="{% url 'register' %}" class="menu-link register-link">
+            <span>+</span>
+            Register
+            </a>
+        {% endif %}
         </div>
     </div>
 </div>

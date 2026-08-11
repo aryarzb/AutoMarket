@@ -24,7 +24,7 @@ def add_car(request):
             owner=request.user,
             brand=request.POST.get("brand"),
             system=request.POST.get("system"),
-            price=request.POST.get("price"),
+            price=request.POST.get("price").replace(".", ""),
             year=request.POST.get("year"),
             mileage=request.POST.get("mileage"),
             color=request.POST.get("color"),

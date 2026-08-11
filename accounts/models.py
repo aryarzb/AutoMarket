@@ -7,3 +7,4 @@ class User(AbstractUser):
     city = models.CharField(max_length=50);
     mobile_number = PhoneNumberField(unique=True);
     address = models.TextField();
+    
