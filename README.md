@@ -25,42 +25,7 @@ The project is designed as a simple car marketplace where users can create accou
 * SQLite
 * Git & GitHub
 
-##  Project Structure
 
-```text
-AutoMarket/
-│
-├── AutoMarket/
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
-│
-├── accounts/
-│   ├── migrations/
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   └── admin.py
-│
-├── cars/
-│   ├── migrations/
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
-│   └── admin.py
-│
-├── templates/
-│   ├── accounts/
-│   ├── cars/
-│   └── base.html
-│
-├── static/
-│
-├── manage.py
-├── .gitignore
-└── README.md
-```
 
 ##  Installation
 
