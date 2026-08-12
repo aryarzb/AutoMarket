@@ -1,7 +1,6 @@
 # Virtual environment
 .venv/
 venv/
-env/
 
 # Python
 __pycache__/
@@ -10,16 +9,16 @@ __pycache__/
 # Django
 db.sqlite3
 
-# Media / uploaded files
+# User uploaded files
 media/
-
-# IDE
-.idea/
-.vscode/
 
 # Environment variables
 .env
 
+# IDE
+.vscode/
+.idea/
+
 # OS
-.DS_Store
 Thumbs.db
+.DS_Store

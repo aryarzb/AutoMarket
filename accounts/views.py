@@ -79,3 +79,21 @@ def profile(request):
         "cars" : cars
     }
     return render(request, "accounts/profile.html", context)
+
+
+def user_page(request, id):
+    user = get_object_or_404(
+        User,
+        id=id
+    )
+    cars = Cars.objects.filter(
+        owner=user
+    )
+    return render(
+        request,
+        "accounts/user_page.html",
+        {
+            "user": user,
+            "cars": cars,
+        },
+    )

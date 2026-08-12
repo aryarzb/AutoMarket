@@ -39,17 +39,19 @@ Add Car
                 <div class="col-md-6 mb-3">
                     <label class="form-label">Year</label>
                     <input
-                        type="number"
+                        type="text"
                         name="year"
+                        id="year"
                         class="form-control"
-                        value="2010"
+                        inputmode="numeric"
+                        placeholder="e.g. 2010 or 1395"
                         min="1900"
-                        max="2100"
+                        max="2026"
                         required
                     >
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label class="form-label">Price ($)</label>
+                    <label class="form-label">Price (Rials)</label>
                     <input
                         type="text"
                         name="price"

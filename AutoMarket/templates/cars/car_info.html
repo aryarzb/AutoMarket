@@ -117,7 +117,7 @@
                     {{ car.owner.city }}
                 </p>
                 <a
-                    href="/profile/{{ car.owner.id }}/"
+                    href="{% url 'user_page' car.owner.id %}"
                     class="btn btn-primary w-100"
                 >
                     View Profile

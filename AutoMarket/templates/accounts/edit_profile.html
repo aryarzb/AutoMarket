@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Profile - AutoMarket
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
+            <div class="card">
+                <div class="card-body p-4 p-md-5">
+                    <!-- Header -->
+                    <div class="text-center mb-5">
+                        <div
+                            class="mx-auto mb-3 d-flex justify-content-center align-items-center"
+                            style="
+                                width:80px;
+                                height:80px;
+                                border-radius:50%;
+                                background:#1E293B;
+                                border:2px solid #D4AF37;
+                            "
+                        >
+                            <span
+                                style="
+                                    font-size:2.2rem;
+                                    color:#D4AF37;
+                                "
+                            >
+                                👤
+                            </span>
+                        </div>
+                        <h2 class="fw-bold mb-2">
+                            Edit Profile
+                        </h2>
+                        <p class="text-secondary mb-0">
+                            Update your personal information
+                        </p>
+                    </div>
+                    <!-- Form -->
+                    <form method="POST">
+                        {% csrf_token %}
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label
+                                    for="first_name"
+                                    class="form-label"
+                                >
+                                    First Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="first_name"
+                                    name="first_name"
+                                    class="form-control"
+                                    value="{{ user.first_name }}"
+                                    required
+                                >
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label
+                                    for="last_name"
+                                    class="form-label"
+                                >
+                                    Last Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="last_name"
+                                    name="last_name"
+                                    class="form-control"
+                                    value="{{ user.last_name }}"
+                                    required
+                                >
+                            </div>
+                        </div>
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label
+                                for="username"
+                                class="form-label"
+                            >
+                                Username
+                            </label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                class="form-control"
+                                value="{{ user.username }}"
+                                required
+                            >
+                        </div>
+                        <!-- Mobile -->
+                        <div class="mb-3">
+                            <label
+                                for="mobile_number"
+                                class="form-label"
+                            >
+                                Mobile Number
+                            </label>
+                            <input
+                                type="text"
+                                id="mobile_number"
+                                name="mobile_number"
+                                class="form-control"
+                                value="{{ user.mobile_number }}"
+                                inputmode="numeric"
+                                required
+                            >
+                        </div>
+                        <!-- Location -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label
+                                    for="state"
+                                    class="form-label"
+                                >
+                                    State
+                                </label>
+                                <input
+                                    type="text"
+                                    id="state"
+                                    name="state"
+                                    class="form-control"
+                                    value="{{ user.state }}"
+                                    required
+                                >
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label
+                                    for="city"
+                                    class="form-label"
+                                >
+                                    City
+                                </label>
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    class="form-control"
+                                    value="{{ user.city }}"
+                                    required
+                                >
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <!-- Password -->
+                        <div class="mb-4">
+                            <h5 class="fw-bold mb-2">
+                                Change Password
+                            </h5>
+                            <p class="text-secondary small mb-3">
+                                Leave these fields empty if you don't want
+                                to change your password.
+                            </p>
+                            <div class="mb-3">
+                                <label
+                                    for="password"
+                                    class="form-label"
+                                >
+                                    New Password
+                                </label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-control"
+                                    placeholder="Enter new password"
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label
+                                    for="confirm_password"
+                                    class="form-label"
+                                >
+                                    Confirm New Password
+                                </label>
+                                <input
+                                    type="password"
+                                    id="confirm_password"
+                                    name="confirm_password"
+                                    class="form-control"
+                                    placeholder="Confirm new password"
+                                >
+                            </div>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="d-flex gap-2 mt-4">
+                            <a
+                                href="{% url 'profile' %}"
+                                class="btn btn-outline-light flex-fill py-2"
+                            >
+                                Cancel
+                            </a>
+                            <button
+                                type="submit"
+                                class="btn btn-primary flex-fill py-2"
+                            >
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
