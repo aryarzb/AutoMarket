@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}
+Search Cars - AutoMarket
+{% endblock %}
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+            <div class="card">
+                <div class="card-body p-4 p-md-5">
+                    <div class="text-center mb-5">
+                        <div
+                            class="mx-auto mb-3 d-flex justify-content-center align-items-center"
+                            style="
+                                width:75px;
+                                height:75px;
+                                border-radius:50%;
+                                background:#1E293B;
+                                border:2px solid #D4AF37;
+                            "
+                        >
+                            <span
+                                style="
+                                    font-size:2rem;
+                                    color:#D4AF37;
+                                "
+                            >
+                            </span>
+                        </div>
+                        <h2 class="fw-bold mb-2">
+                            Search Cars
+                        </h2>
+                        <p class="text-secondary mb-0">
+                            Find your ideal car using the filters below.
+                        </p>
+                    </div>
+                    <form method="GET">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label
+                                    for="brand"
+                                    class="form-label"
+                                >
+                                    Brand
+                                </label>
+                                <input
+                                    type="text"
+                                    id="brand"
+                                    name="brand"
+                                    class="form-control"
+                                    placeholder="e.g. BMW, Mercedes, Peugeot"
+                                >
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label
+                                    for="system"
+                                    class="form-label"
+                                >
+                                    System
+                                </label>
+                                <input
+                                    type="text"
+                                    id="system"
+                                    name="system"
+                                    class="form-control"
+                                    placeholder="e.g. 206, C-Class, X5"
+                                >
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label
+                                    for="min_price"
+                                    class="form-label"
+                                >
+                                    Minimum Price ($)
+                                </label>
+                                <input
+                                    type="number"
+                                    id="min_price"
+                                    name="min_price"
+                                    class="form-control"
+                                    inputmode="numeric"
+                                    min="0"
+                                    placeholder="e.g. 10000"
+                                >
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label
+                                    for="max_price"
+                                    class="form-label"
+                                >
+                                    Maximum Price ($)
+                                </label>
+                                <input
+                                    type="text"
+                                    id="max_price"
+                                    name="max_price"
+                                    class="form-control"
+                                    inputmode="numeric"
+                                    min="0"
+                                    placeholder="e.g. 50000"
+                                >
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 mt-3">
+                            <button
+                                type="submit"
+                                class="btn btn-primary flex-fill py-3"
+                            >
+                                Search
+                            </button>
+                            <a
+                                href="{% url 'search' %}"
+                                class="btn btn-outline-light px-4 py-3"
+                            >
+                                Clear
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+const max_priceInput = document.getElementById("max_price");
+const min_priceInput = document.getElementById("min_price");
+function formatNumber(input) {
+    input.addEventListener("input", function () {
+        let value = this.value.replace(/\D/g, "");
+        if (value) {
+            this.value = Number(value).toLocaleString("de-DE");
+        } else {
+            this.value = "";
+        }
+    });
+}
+
+formatNumber(max_priceInput);
+formatNumber(min_priceInput);
+</script>
+
+{% endblock %}

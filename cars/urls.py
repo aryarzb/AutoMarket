@@ -8,7 +8,8 @@ urlpatterns = [
     path("add_car/", views.add_car, name="add_car"),
     path("cars/<int:id>", views.car_info, name="car_info"),
     path("delete-car/<int:id>/", views.delete_car, name="delete_car"),
-    path("edit_profile/<int:id>/", views.edit_profile, name="edit_profile"),
+    path("search/", views.search, name="search"),
+    
 ]
 
 if settings.DEBUG:

@@ -70,80 +70,46 @@ def delete_car(request, id):
 
 
 
-User = get_user_model()
-@login_required
-def edit_profile(request, id):
 
-    user = get_object_or_404(
-        User,
-        id=id
-    )
-    if request.user != user:
-        return redirect("profile")
-    if request.method == "POST":
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        username = request.POST.get("username")
-        mobile_number = request.POST.get("mobile_number")
-        state = request.POST.get("state")
-        city = request.POST.get("city")
-        password = request.POST.get("password")
-        confirm_password = request.POST.get("confirm_password")
-        if User.objects.filter(
-            username=username
-        ).exclude(
-            id=user.id
-        ).exists():
-            return render(
-                request,
-                "accounts/edit_profile.html",
-                {
-                    "user": user,
-                    "error": "This username is already taken."
-                }
-            )
-        if User.objects.filter(
-            mobile_number=mobile_number
-        ).exclude(
-            id=user.id
-        ).exists():
-            return render(
-                request,
-                "accounts/edit_profile.html",
-                {
-                    "user": user,
-                    "error": "This mobile number is already registered."
-                }
-            )
-        user.first_name = first_name
-        user.last_name = last_name
-        user.username = username
-        user.mobile_number = mobile_number
-        user.state = state
-        user.city = city
-        if password:
-            if password != confirm_password:
-                return render(
-                    request,
-                    "accounts/edit_profile.html",
-                    {
-                        "user": user,
-                        "error": "Passwords do not match."
-                    }
-                )
-            user.set_password(password)
-        user.save()
-        if password:
-            from django.contrib.auth import update_session_auth_hash
-            update_session_auth_hash(
-                request,
-                user
-            )
-        return redirect("profile")
-    return render(
+
+def search(request):
+    brand = request.GET.get("brand", "").strip()
+    system = request.GET.get("system", "").strip()
+    min_price = request.GET.get("min_price", "").strip()
+    max_price = request.GET.get("max_price", "").strip()
+    if not any([brand, system, min_price, max_price]):
+        return render(
+            request,
+            "cars/search.html"
+        )
+    cars = Cars.objects.all()
+    if brand:
+        cars = cars.filter(
+            brand__icontains=brand
+        )
+    if system:
+        cars = cars.filter(
+            system__icontains=system
+        )
+    if min_price:
+        cars = cars.filter(
+            price__gte=min_price.replace(".","")
+        )
+    if max_price:
+        cars = cars.filter(
+            price__lte=max_price.replace(".","")
+        )
+        
+        if min_price:
+            cars = cars.filter(price__gte=min_price)
+
+        if max_price:
+            cars = cars.filter(price__lte=max_price)
+            
+        return render(
         request,
-        "accounts/edit_profile.html",
+        "cars/car_list.html",
         {
-            "user": user
-        }
+            "cars": cars,
+        },
     )
